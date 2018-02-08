@@ -1,0 +1,23 @@
+apply plugin: 'java'
+sourceCompatibility = 1.8
+tasks.withType(JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
+dependencies {
+  compile 'org.sonarsource.sonarqube:sonar-plugin-api:5.6'
+  compile 'org.sonarsource.sslr:sslr-core:1.22'
+
+  testCompile 'org.sonarsource.sslr:sslr-testing-harness:1.22'
+
+  compile 'org.sonarsource.sslr-squid-bridge:sslr-squid-bridge:2.6.1' // TODO lots of exclusions in parent
+  compile 'com.google.guava:guava:10.0.1'
+
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.easytesting:fest-assert:1.4'
+  testCompile 'org.mockito:mockito-all:1.9.0'
+}
+
+repositories {
+  mavenCentral()
+}
